@@ -19,10 +19,10 @@ import java.util.List;
  */
 public class MyItemLinearRecyclerViewAdapter extends RecyclerView.Adapter<MyItemLinearRecyclerViewAdapter.ViewHolder> {
 
-    private final List<String> mValues;
+    private final List<ListContent.Item> mValues;
     private final OnListInteractionListener mListener;
 
-    public MyItemLinearRecyclerViewAdapter(List<String> items, OnListInteractionListener listener) {
+    public MyItemLinearRecyclerViewAdapter(List<ListContent.Item> items, OnListInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -30,20 +30,24 @@ public class MyItemLinearRecyclerViewAdapter extends RecyclerView.Adapter<MyItem
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item, parent, false);
+                .inflate(R.layout.list_item_explore_fragment, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mTextView.setText(mValues.get(position));
+        holder.mItem = mValues.get(position);
+
+        holder.mCategoryName.setText(holder.mItem.name);
+        holder.mImageView.setImageResource(holder.mItem.details);
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListInteraction(holder.mTextView.getText().toString());
+                    mListener.onListInteraction(holder.mCategoryName.getText().toString());
                 }
             }
         });
@@ -56,12 +60,16 @@ public class MyItemLinearRecyclerViewAdapter extends RecyclerView.Adapter<MyItem
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mTextView;
+        public final ImageView mImageView;
+        public final TextView mCategoryName;
 
-        public ViewHolder(View view) {
-            super(view);
-            mView = view;
-            mTextView = (TextView) view.findViewById(R.id.list_text);
+        public ListContent.Item mItem;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            mView = itemView;
+            mImageView = (ImageView) itemView.findViewById(R.id.category_card_iv);
+            mCategoryName = (TextView) itemView.findViewById(R.id.category_card_tv);
         }
     }
 }

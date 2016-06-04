@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ganesh.brokerapp.List.ListContent;
 import com.example.ganesh.brokerapp.List.ListContent.Item;
 
 import java.util.ArrayList;
@@ -19,11 +20,17 @@ public class ExploreFragment extends Fragment {
 
     public final static String EXPLORE_FRAGMENT = "EXPLORE_FRAG";
 
-    public static final List<String> list = new ArrayList<>();
-
     private OnListInteractionListener mListener;
 
     public ExploreFragment() {
+    }
+
+    public static final List<ListContent.Item> items = new ArrayList<>();
+
+    public void fillList(){
+        items.add(new ListContent.Item("01", "Photography ", R.drawable.tom1));
+        items.add(new ListContent.Item("02" , "Catering " , R.drawable.tom2));
+        items.add(new ListContent.Item("03" , "Halls" , R.drawable.tom3));
     }
 
     // TODO: Customize parameter initialization
@@ -36,13 +43,7 @@ public class ExploreFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        list.add("Caterers");
-        list.add("Photographers");
-        list.add("Designers");
-        list.add("Halls");
-        list.add("Flower Deco");
-
+        fillList();
     }
 
     @Override
@@ -55,7 +56,7 @@ public class ExploreFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new MyItemLinearRecyclerViewAdapter(list, mListener));
+            recyclerView.setAdapter(new MyItemLinearRecyclerViewAdapter(items, mListener));
             Log.d(EXPLORE_FRAGMENT, " OnCreateView method ");
         }
         return view;
