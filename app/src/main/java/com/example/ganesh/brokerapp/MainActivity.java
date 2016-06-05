@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.lp_tabs);
         tabLayout.setupWithViewPager(viewpager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_main);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +140,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListInteraction(String text) {
+        int id;
+
+        Intent intent = new Intent(this , CategoryMainActivity.class );
+
+        startActivity(intent);
 
     }
 

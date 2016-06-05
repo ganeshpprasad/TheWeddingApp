@@ -9,5 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
+    android:padding="8dp"
+    tools:actionBarNavMode="list"
+    app:layoutManager="GridLayoutManager"
     tools:listitem="@layout/list_item_explore_fragment"/>

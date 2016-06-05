@@ -14,10 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/category_each_list_rv"
-        android:layout_margin="4dp"
+        android:layout_marginTop="32dp"
         android:padding="4dp"
         tools:listitem="@layout/list_item_search_page_cards">
-
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
