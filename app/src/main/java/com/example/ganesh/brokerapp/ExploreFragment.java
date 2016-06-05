@@ -3,6 +3,7 @@ package com.example.ganesh.brokerapp;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,9 +29,10 @@ public class ExploreFragment extends Fragment {
     public static final List<ListContent.Item> items = new ArrayList<>();
 
     public void fillList(){
-        items.add(new ListContent.Item("01", "Photography ", R.drawable.tom1));
-        items.add(new ListContent.Item("02" , "Catering " , R.drawable.tom2));
-        items.add(new ListContent.Item("03" , "Halls" , R.drawable.tom3));
+        items.add(new ListContent.Item("01", "Photography ", R.drawable.img_camera_48px));
+        items.add(new ListContent.Item("02" , "Catering " , R.drawable.img_restaurant_48px));
+        items.add(new ListContent.Item("03" , "Halls" , R.drawable.img_halls_48px));
+        items.add(new ListContent.Item("04" , "Decorators" , R.drawable.img_florist_48px));
     }
 
     // TODO: Customize parameter initialization
@@ -55,7 +57,7 @@ public class ExploreFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setLayoutManager(new GridLayoutManager(context , 2));
             recyclerView.setAdapter(new MyItemLinearRecyclerViewAdapter(items, mListener));
             Log.d(EXPLORE_FRAGMENT, " OnCreateView method ");
         }
