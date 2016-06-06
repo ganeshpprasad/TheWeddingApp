@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -43,7 +45,14 @@ public class CategoryMainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("CAT_NAME");
+
+        getSupportActionBar().setTitle(name);
+
         fillList();
+
+        FloatingActionButton fb = (FloatingActionButton) findViewById(R.id.fab_cat);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -111,4 +120,9 @@ public class CategoryMainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cat_list , menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }

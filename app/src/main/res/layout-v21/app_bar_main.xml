@@ -19,13 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:titleTextColor="@color/colorTextIcons"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lp_tabs"
-            android:elevation="4dp"/>
+            app:tabSelectedTextColor="@color/colorTextIcons"
+            app:tabTextColor="@color/colorPrimaryLight"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -37,7 +39,7 @@
         android:id="@+id/container"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

@@ -20,10 +20,13 @@
             android:layout_height="75dp"
             android:orientation="vertical"
             android:layout_gravity="bottom"
+            android:backgroundTintMode="multiply"
             android:gravity="center"
             android:showDividers="beginning"
             android:background="@color/colorPrimaryDarkTranslucent"
-            android:padding="4dp">
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:padding="4dp"
+            android:elevation="4dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -32,9 +35,9 @@
                 android:textColor="@color/colorTextIcons"
                 android:textAlignment="center"
                 android:id="@+id/content"/>
-
+            
         </LinearLayout>
-
+        
     </com.example.ganesh.brokerapp.SquareFrameLayout>
 
 </LinearLayout>

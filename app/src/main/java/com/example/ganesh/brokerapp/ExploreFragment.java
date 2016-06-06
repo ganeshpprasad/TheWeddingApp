@@ -38,7 +38,7 @@ public class ExploreFragment extends Fragment {
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static ExploreFragment newInstance() {
-        ExploreFragment fragment = new ExploreFragment();
+        ExploreFragment fragment = new ExploreFragment( );
         return fragment;
     }
 
@@ -68,12 +68,14 @@ public class ExploreFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
+            if (context instanceof OnListFragmentInteractionListener) {
+                mListener = (OnListInteractionListener) context;
+            } else {
+                throw new RuntimeException(context.toString()
+                        + " must implement OnListFragmentInteractionListener");
+            }
+
+
     }
 
     @Override

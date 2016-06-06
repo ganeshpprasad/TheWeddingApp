@@ -1,5 +1,6 @@
 package com.example.ganesh.brokerapp;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.util.Log;
@@ -31,9 +33,9 @@ public class SearchVendorsActivity extends AppCompatActivity {
     public static final List<ListContent.Item> items = new ArrayList<>();
 
     public void fillList(){
-        items.add(new ListContent.Item("01", "Warrior ", R.drawable.tom1));
-        items.add(new ListContent.Item("02" , "Bane " , R.drawable.tom2));
-        items.add(new ListContent.Item("03" , "Mad Max " , R.drawable.tom3));
+        items.add(new ListContent.Item("01", " Bridal wear ", R.drawable.image3));
+        items.add(new ListContent.Item("02" , " Wedding designers " , R.drawable.image4));
+        items.add(new ListContent.Item("03" , " Catering " , R.drawable.image1));
     }
 
     public SearchVendorsActivity() {
@@ -51,6 +53,9 @@ public class SearchVendorsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fillList();
+
+//        getSupportFragmentManager().beginTransaction().add(R.id.container_search_activity ,  new ExploreFragment()).commit();
+
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.category_list_rv);
         assert rv != null;
@@ -122,6 +127,14 @@ public class SearchVendorsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search_create_or_join , menu);
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search_icon_create_or_join).getActionView();
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.requestFocus();
+
         return true;
     }
 

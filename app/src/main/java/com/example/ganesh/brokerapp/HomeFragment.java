@@ -23,9 +23,9 @@ public class HomeFragment extends Fragment {
     public static final List<ListContent.Item> items = new ArrayList<>();
 
     public void fillList(){
-        items.add(new Item("01", "warrior ", R.drawable.tom1));
-        items.add(new Item("02" , "Bane " , R.drawable.tom2));
-        items.add(new Item("03" , "Mad Max " , R.drawable.tom3));
+        items.add(new Item("01", " Ashok Kumar's event ", R.drawable.image4));
+        items.add(new Item("02" , " Jon Doe's event " , R.drawable.image2));
+        items.add(new Item("03" , " Mary Jane's event " , R.drawable.image3));
     }
 
     public HomeFragment() {

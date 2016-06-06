@@ -140,10 +140,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListInteraction(String text) {
-        int id;
 
-        Intent intent = new Intent(this , CategoryMainActivity.class );
-
+        Intent intent = new Intent(this , CategoryMainActivity.class);
+        intent.putExtra("CAT_NAME" , text);
         startActivity(intent);
 
     }

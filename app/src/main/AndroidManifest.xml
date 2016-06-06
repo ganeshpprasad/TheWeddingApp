@@ -82,7 +82,6 @@
         </activity>
         <activity
             android:name=".CategoryMainActivity"
-            android:label="@string/title_activity_category_main"
             android:parentActivityName=".SearchVendorsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
