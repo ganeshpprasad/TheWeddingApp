@@ -39,5 +39,16 @@
 
     <string name="title_activity_vendor_account">Vendor Name</string>
     <string name="title_activity_event_description">Event Name</string>
+    <string name="select_date">Select date</string>
+
+    <!--Array list for the spinner in event creation-->
+
+    <string-array name="events_array">
+        <item>Marriage</item>
+        <item>Any other</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

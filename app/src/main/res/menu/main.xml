@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_landing_page_search"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:title="Search"
+        android:icon="@drawable/ic_search_black_36px"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_landing_page_notification"
+        android:orderInCategory="99"
+        android:title="Notifications"
+        android:icon="@drawable/ic_notifications_black_36px"
+        app:showAsAction="always"/>
+
 </menu>

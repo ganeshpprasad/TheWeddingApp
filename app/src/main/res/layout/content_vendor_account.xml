@@ -5,17 +5,199 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLIghtBackground"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ganesh.brokerapp.VendorAccountActivity"
+    tools:context=".Activity.VendorAccountActivity"
     tools:showIn="@layout/activity_vendor_account">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/vendor_name"
-        android:text="Vendor details"
-        android:textSize="@dimen/medium_text"
-        android:gravity="center"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vendor_name"
+            android:text="Vendor Name"
+            android:textSize="@dimen/heading_name_text"
+            android:gravity="center"
+            android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryText"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact_vendor_desc"
+                android:text="Contact"
+                android:textSize="@dimen/medium_text"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorSecondaryAccent"
+                android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vendor_phone"
+                    android:text="785 684 4867"
+                    android:textSize="@dimen/heading_name_text"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_call_24px"
+                    android:tint="@color/colorSecondaryAccent"
+                    android:layout_marginEnd="16dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBorder"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vendor_address"
+                    android:text="ManasaGangotri"
+                    android:textSize="@dimen/heading_name_text"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_navigation_24px"
+                    android:tint="@color/colorSecondaryAccent"
+                    android:layout_marginEnd="16dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryText"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <!--Photos text view heading-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/photos_vendor_desc"
+            android:text="Photos"
+            android:textSize="@dimen/medium_text"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorSecondaryAccent"
+            android:layout_marginTop="4dp"/>
+
+        <!--TODO Change this into scroll view-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/vendor_photo_container">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/colorPrimaryLight"
+                android:src="@drawable/image1"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/colorPrimaryLight"
+                android:src="@drawable/image2"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/colorPrimaryLight"
+                android:src="@drawable/image3"
+                android:layout_marginEnd="8dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorBorder"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <!--TODO Add links to social media-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Links_vendor_desc"
+            android:text="Social"
+            android:textSize="@dimen/medium_text"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorSecondaryAccent"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="8dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
+                android:background="@color/color_facebook_blue"
+                android:text="f"
+                android:textSize="48sp"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
+                android:background="@color/color_twitter_blue"
+                android:text="t"
+                android:textSize="48sp"
+                android:layout_margin="4dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

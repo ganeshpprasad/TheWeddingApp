@@ -7,8 +7,16 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="medium_text">25sp</dimen>
-    <dimen name="login_split">35dp</dimen>
+
+    <dimen name="login_split">30dp</dimen>
     <dimen name="lvl2">8dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="app_bar_height">220dp</dimen>
+
+    <!--dimensions for text-->
+    <!-- Medium text TODO: find it's use and describe -->
+    <dimen name="medium_text">25sp</dimen>
+    <!--size of the name in description of vendor-->
+    <dimen name="heading_name_text">25sp</dimen>
+
+
 </resources>

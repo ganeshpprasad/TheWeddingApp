@@ -16,54 +16,6 @@ import java.util.Map;
 public class ListContent {
 
     /**
-     * An array of sample (dummy) items.
-     */
-    public static final List<Item> ITEMS = new ArrayList<Item>();
-
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
-    public static final Map<String, Item> ITEM_MAP = new HashMap<String, Item>();
-
-    private static final int COUNT = 3;
-
-    private static final Integer[] imageresids = new Integer[] { R.drawable.tom1 , R.drawable.tom2 , R.drawable.tom3 };
-    private static final String[] content = { "Warrior" , " Bane " , " Max "  };
-
-    /*
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createItem(i));
-        }
-    }
-    */
-
-
-
-    /*
-    private static void addItem(Item item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-    */
-
-    private static Item createItem(int position , String[] content , Integer[] imageresids) {
-
-        return new Item(String.valueOf(position), content[position] , imageresids[position]);
-    }
-
-    /*
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
-    */
-    /**
      * A dummy item representing a piece of content.
      */
     public static class Item {
@@ -77,10 +29,12 @@ public class ListContent {
             this.details = imgrsid;
         }
 
-        public void addItems( List<Item> items , String[] names , Integer[] resids , int position ) {
+        public String getName() {
+            return name;
+        }
 
-            items.add(createItem( position , names , resids ));
-
+        public String getId() {
+            return id;
         }
 
         @Override
@@ -88,4 +42,5 @@ public class ListContent {
             return name;
         }
     }
+
 }

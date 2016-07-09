@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/category_each_list_rv"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.ganesh.brokerapp.CategoryMainActivity"
-    tools:showIn="@layout/activity_category_main">
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/category_each_list_rv"
-        tools:listitem="@layout/list_item_search_page_cards">
-    </android.support.v7.widget.RecyclerView>
-
-</RelativeLayout>
+    tools:context=".Activity.CategoryMainActivity"
+    tools:listitem="@layout/list_item_search_page_cards"
+    tools:showIn="@layout/activity_category_main"
+    android:padding="8dp">
+</android.support.v7.widget.RecyclerView>
