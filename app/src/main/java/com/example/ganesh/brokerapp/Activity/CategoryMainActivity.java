@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ganesh.brokerapp.Fragments.LandingPagePagerFragment;
 import com.example.ganesh.brokerapp.List.ListContent;
 import com.example.ganesh.brokerapp.R;
 

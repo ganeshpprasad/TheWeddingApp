@@ -16,15 +16,9 @@ import com.example.ganesh.brokerapp.adapter.HomeItemEventRecyclerViewAdapter;
 import com.example.ganesh.brokerapp.interfaces.OnRecyclerListHomeFragmentInteractionListener;
 import com.example.ganesh.brokerapp.R;
 
-/**
- * A fragment representing a list of Items.
- * <p>
- * Activities containing this fragment MUST implement the {@link OnRecyclerListHomeFragmentInteractionListener}
- * interface.
- */
 public class TrendFragment extends Fragment {
 
-    public final static String HOME_FRAGMENT = "EXPLORE_FRAG";
+    private final static String LOG_TAG = "Trend fragment";
 
     public static final ListContent.Item[] items = new ListContent.Item[] {
             new Item("01", " Ashok Kumar's event ", R.drawable.image4) ,
@@ -34,10 +28,6 @@ public class TrendFragment extends Fragment {
 
     private OnRecyclerListHomeFragmentInteractionListener mListener;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public TrendFragment() {
     }
 
@@ -64,7 +54,6 @@ public class TrendFragment extends Fragment {
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
             recyclerView.setAdapter(new HomeItemEventRecyclerViewAdapter(items , mListener));
-            Log.d(HOME_FRAGMENT, " OnCreateView method ");
         }
         return view;
     }

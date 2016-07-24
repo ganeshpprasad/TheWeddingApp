@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.ganesh.brokerapp.R;
 public class HomeFragment extends Fragment {
 
     private OnRecyclerListHomeFragmentInteractionListener mListener;
+    private static final String LOG_TAG = "Home fragment";
 
     public static final ListContent.Item[] items = new ListContent.Item[] {
             new Item("01", " Ashok Kumar's event ", R.drawable.image4) ,
@@ -28,10 +30,9 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
+        Log.d( LOG_TAG , "new instance method" );
         return fragment;
     }
 
@@ -44,7 +45,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -54,7 +54,6 @@ public class HomeFragment extends Fragment {
         }
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -72,5 +71,7 @@ public class HomeFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
 }
