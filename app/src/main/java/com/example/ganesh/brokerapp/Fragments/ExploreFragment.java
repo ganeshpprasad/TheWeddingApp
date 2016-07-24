@@ -10,16 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ganesh.brokerapp.List.ListContent;
-import com.example.ganesh.brokerapp.adapter.MyItemLinearRecyclerViewAdapter;
-import com.example.ganesh.brokerapp.interfaces.OnListFragmentInteractionListener;
-import com.example.ganesh.brokerapp.interfaces.OnListInteractionListener;
+import com.example.ganesh.brokerapp.adapter.ExploreItemEventRecycleAdapter;
+import com.example.ganesh.brokerapp.interfaces.OnRecyclerListExploreFragmentInteractionListener;
 import com.example.ganesh.brokerapp.R;
 
 public class ExploreFragment extends Fragment {
 
 //    public final static String EXPLORE_FRAGMENT_TAG = "EXPLORE_FRAG";
 
-    private OnListInteractionListener mListener;
+    private OnRecyclerListExploreFragmentInteractionListener mListener;
     public static final ListContent.Item[] items = new ListContent.Item[]{
             new ListContent.Item("01", "Photography ", R.drawable.img_camera_48px) ,
             new ListContent.Item("02" , "Catering " , R.drawable.img_restaurant_48px) ,
@@ -52,7 +51,7 @@ public class ExploreFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context , 2));
-            recyclerView.setAdapter(new MyItemLinearRecyclerViewAdapter(items, mListener));
+            recyclerView.setAdapter(new ExploreItemEventRecycleAdapter(items, mListener));
         }
         return view;
     }
@@ -60,11 +59,11 @@ public class ExploreFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-            if (context instanceof OnListFragmentInteractionListener) {
-                mListener = (OnListInteractionListener) context;
+            if (context instanceof OnRecyclerListExploreFragmentInteractionListener) {
+                mListener = (OnRecyclerListExploreFragmentInteractionListener) context;
             } else {
                 throw new RuntimeException(context.toString()
-                        + " must implement OnListFragmentInteractionListener");
+                        + " must implement ");
             }
 
 

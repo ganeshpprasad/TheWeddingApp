@@ -33,7 +33,7 @@
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name=".Activity.DetailsActivity"
+            android:name=".Activity.EventDetailsActivity"
             android:parentActivityName=".Activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

@@ -5,8 +5,8 @@ import com.example.ganesh.brokerapp.List.ListContent;
 /**
  * Created by Ganesh Prasad on 01-05-2016.
  */
-public interface OnListFragmentInteractionListener {
+public interface OnRecyclerListHomeFragmentInteractionListener {
 
-    void onListFragmentInteraction(ListContent.Item item);
+    void OnRecyclerListHomeFragmentInteraction(ListContent.Item item);
 
 }

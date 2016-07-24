@@ -21,13 +21,13 @@ import android.view.MenuItem;
 import com.example.ganesh.brokerapp.Fragments.ExploreFragment;
 import com.example.ganesh.brokerapp.Fragments.HomeFragment;
 import com.example.ganesh.brokerapp.List.ListContent;
-import com.example.ganesh.brokerapp.interfaces.OnListFragmentInteractionListener;
-import com.example.ganesh.brokerapp.interfaces.OnListInteractionListener;
+import com.example.ganesh.brokerapp.interfaces.OnRecyclerListHomeFragmentInteractionListener;
+import com.example.ganesh.brokerapp.interfaces.OnRecyclerListExploreFragmentInteractionListener;
 import com.example.ganesh.brokerapp.R;
 import com.example.ganesh.brokerapp.Fragments.TrendFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener , OnListFragmentInteractionListener, OnListInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener , OnRecyclerListHomeFragmentInteractionListener, OnRecyclerListExploreFragmentInteractionListener {
 
     //public static final String MAIN_ACT = "MAIN_ACTIVITY";
 
@@ -140,10 +140,14 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * Method called after selecting an event in home page
+     * @param item refers to the event java object
+     */
     @Override
-    public void onListFragmentInteraction(ListContent.Item item) {
+    public void OnRecyclerListHomeFragmentInteraction(ListContent.Item item) {
 
-        Intent intent = new Intent(this , DetailsActivity.class );
+        Intent intent = new Intent(this , EventDetailsActivity.class );
         intent.putExtra( IMAGE_DETAILS , item.details );
         intent.putExtra( IMAGE_NAME , item.name );
 
@@ -154,7 +158,7 @@ public class MainActivity extends AppCompatActivity
     public static final String CATEGORY_ID = "category id";
 
     @Override
-    public void onListInteraction(String text , int id) {
+    public void OnRecyclerListExploreFragmentInteraction(String text , int id) {
 
         Intent intent = new Intent(this , CategoryMainActivity.class);
         intent.putExtra("CAT_NAME" , text);

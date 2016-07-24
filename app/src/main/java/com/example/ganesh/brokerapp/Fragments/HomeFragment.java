@@ -11,24 +11,19 @@ import android.view.ViewGroup;
 
 import com.example.ganesh.brokerapp.List.*;
 import com.example.ganesh.brokerapp.List.ListContent.Item;
-import com.example.ganesh.brokerapp.adapter.MyItemRecyclerViewAdapter;
-import com.example.ganesh.brokerapp.interfaces.OnListFragmentInteractionListener;
+import com.example.ganesh.brokerapp.adapter.HomeItemEventRecyclerViewAdapter;
+import com.example.ganesh.brokerapp.interfaces.OnRecyclerListHomeFragmentInteractionListener;
 import com.example.ganesh.brokerapp.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private OnListFragmentInteractionListener mListener;
+    private OnRecyclerListHomeFragmentInteractionListener mListener;
 
-    public static final List<ListContent.Item> items = new ArrayList<>();
-
-    public void fillList(){
-        items.add(new Item("01", " Ashok Kumar's event ", R.drawable.image4));
-        items.add(new Item("02" , " Jon Doe's event " , R.drawable.image2));
-        items.add(new Item("03" , " Mary Jane's event " , R.drawable.image3));
-    }
+    public static final ListContent.Item[] items = new ListContent.Item[] {
+            new Item("01", " Ashok Kumar's event ", R.drawable.image4) ,
+            new Item("02" , " Jon Doe's event " , R.drawable.image2) ,
+            new Item("03" , " Mary Jane's event " , R.drawable.image3)
+    };
 
     public HomeFragment() {
     }
@@ -43,7 +38,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fillList();
     }
 
     @Override
@@ -56,7 +50,7 @@ public class HomeFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(items , mListener));
+            recyclerView.setAdapter(new HomeItemEventRecyclerViewAdapter(items , mListener));
         }
         return view;
     }
@@ -65,11 +59,11 @@ public class HomeFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnRecyclerListHomeFragmentInteractionListener) {
+            mListener = (OnRecyclerListHomeFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+                    + " must implement");
         }
     }
 

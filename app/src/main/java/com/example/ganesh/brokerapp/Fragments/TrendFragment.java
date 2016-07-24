@@ -10,34 +10,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ganesh.brokerapp.List.ListContent;
 import com.example.ganesh.brokerapp.List.ListContent.Item;
-import com.example.ganesh.brokerapp.adapter.MyItemRecyclerViewAdapter;
-import com.example.ganesh.brokerapp.interfaces.OnListFragmentInteractionListener;
+import com.example.ganesh.brokerapp.adapter.HomeItemEventRecyclerViewAdapter;
+import com.example.ganesh.brokerapp.interfaces.OnRecyclerListHomeFragmentInteractionListener;
 import com.example.ganesh.brokerapp.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
  * <p>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link OnRecyclerListHomeFragmentInteractionListener}
  * interface.
  */
 public class TrendFragment extends Fragment {
 
     public final static String HOME_FRAGMENT = "EXPLORE_FRAG";
 
-    public static final List<Item> items = new ArrayList<>();
+    public static final ListContent.Item[] items = new ListContent.Item[] {
+            new Item("01", " Ashok Kumar's event ", R.drawable.image4) ,
+            new Item("02" , " Jon Doe's event " , R.drawable.image2) ,
+            new Item("03" , " Mary Jane's event " , R.drawable.image3)
+    };
 
-    public void fillList(){
-        Log.d(HOME_FRAGMENT , "Inside fill List method");
-        items.add(new Item("01", "warrior ", R.drawable.tom2));
-        items.add(new Item("02" , "Bane " , R.drawable.tom1));
-        items.add(new Item("03" , "Mad Max " , R.drawable.tom3));
-    }
-
-    private OnListFragmentInteractionListener mListener;
+    private OnRecyclerListHomeFragmentInteractionListener mListener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,8 +51,6 @@ public class TrendFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        fillList();
     }
 
     @Override
@@ -70,7 +63,7 @@ public class TrendFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(items , mListener));
+            recyclerView.setAdapter(new HomeItemEventRecyclerViewAdapter(items , mListener));
             Log.d(HOME_FRAGMENT, " OnCreateView method ");
         }
         return view;
@@ -80,11 +73,11 @@ public class TrendFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnRecyclerListHomeFragmentInteractionListener) {
+            mListener = (OnRecyclerListHomeFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
+                    + " must implement");
         }
     }
 

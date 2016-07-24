@@ -8,7 +8,8 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
 
         <ImageView
             android:id="@+id/background_review_and_save"
@@ -86,6 +87,7 @@
             android:textSize="25sp"/>
 
     </LinearLayout>
+
 </LinearLayout>
 
 
