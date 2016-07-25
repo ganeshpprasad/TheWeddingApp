@@ -18,10 +18,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import com.example.ganesh.brokerapp.Fragments.BookmarksFragment;
 import com.example.ganesh.brokerapp.Fragments.ExploreFragment;
 import com.example.ganesh.brokerapp.Fragments.HomeFragment;
 import com.example.ganesh.brokerapp.Fragments.LandingPagePagerFragment;
+import com.example.ganesh.brokerapp.Fragments.MyEventsListFragment;
 import com.example.ganesh.brokerapp.List.ListContent;
 import com.example.ganesh.brokerapp.interfaces.OnRecyclerListHomeFragmentInteractionListener;
 import com.example.ganesh.brokerapp.interfaces.OnRecyclerListExploreFragmentInteractionListener;
@@ -31,7 +34,8 @@ import com.example.ganesh.brokerapp.Fragments.TrendFragment;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
         , LandingPagePagerFragment.OnLandingPagePagerFragmentInteractionListener ,
         OnRecyclerListHomeFragmentInteractionListener,
-        OnRecyclerListExploreFragmentInteractionListener {
+        OnRecyclerListExploreFragmentInteractionListener ,
+        MyEventsListFragment.OnEventsListFragmentInteractionListener{
 
     //public static final String MAIN_ACT = "MAIN_ACTIVITY";
 
@@ -49,13 +53,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_landing_page);
         assert fab != null;
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this , CreateOrJoinActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this , CreateOrJoinActivity.class);
+                startActivity(intent);
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,6 +71,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(0);
+
+        TextView seeProfileTv = (TextView) findViewById(R.id.nav_bar_profile_button);
+        assert seeProfileTv != null;
+        seeProfileTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( MainActivity.this , UserAccountActivity.class );
+                startActivity( intent );
+            }
+        });
 
         getSupportFragmentManager().beginTransaction().add( R.id.fragment_container_landing_page_containing_activity ,
                 LandingPagePagerFragment.newInstance()).addToBackStack(null).commit();
@@ -130,9 +145,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
 
+            case R.id.nav_my_events : {
+                getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container_landing_page_containing_activity ,
+                        MyEventsListFragment.newInstance()).addToBackStack(null).commit();
+                break;
+
+            }
+
             case R.id.nav_bookmarks : {
                 getSupportFragmentManager().beginTransaction().replace( R.id.fragment_container_landing_page_containing_activity ,
-                        ExploreFragment.newInstance()).commit();
+                        BookmarksFragment.newInstance()).addToBackStack(null).commit();
+                break;
+            }
+
+            case R.id.nav_settings : {
+//                TODO well it is basically useless right now
+                Intent intent = new Intent( this , SettingsActivity.class );
+                startActivity( intent );
             }
 
         }
@@ -170,6 +199,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onLandingPagePagerFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onEventsListFragmentInteraction(Uri uri) {
 
     }
 }

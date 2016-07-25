@@ -13,26 +13,19 @@
 
     <ImageView
         android:id="@+id/navImageView"
-        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/ic_account_circle_48px"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="5dp"
         android:textSize="@dimen/medium_text"
         android:text="User name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="See Profile"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/nav_bar_profile_button"/>
 
 </LinearLayout>

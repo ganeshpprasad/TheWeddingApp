@@ -8,20 +8,15 @@
     android:fitsSystemWindows="true"
     tools:context=".Activity.UserAccountActivity">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
             <android.support.design.widget.AppBarLayout
-                android:id="@+id/app_bar"
+                android:id="@+id/app_bar_user_account"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_bar_height"
                 android:fitsSystemWindows="true"
                 android:theme="@style/AppTheme.AppBarOverlay">
 
                 <android.support.design.widget.CollapsingToolbarLayout
-                    android:id="@+id/toolbar_layout"
+                    android:id="@+id/toolbar_layout_user_account"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
@@ -29,26 +24,24 @@
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                     <android.support.v7.widget.Toolbar
-                        android:id="@+id/toolbar"
+                        android:id="@+id/toolbar_user_account"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:layout_collapseMode="pin"
                         app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_account_circle_48px"
+                        android:layout_gravity="center"
+                        app:layout_collapseMode="pin"/>
+
                 </android.support.design.widget.CollapsingToolbarLayout>
+
             </android.support.design.widget.AppBarLayout>
 
             <include layout="@layout/content_user_account"/>
-
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:src="@drawable/ic_account_circle_48px"
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="bottom|center_horizontal"/>
 
 </android.support.design.widget.CoordinatorLayout>
